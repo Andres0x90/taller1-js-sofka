@@ -4,22 +4,31 @@ class Electrodomestico {
     constructor(consumo, procedencia)
     {
         this.precioConsumo = 0;
-        this.procedencia = 0;
+        this.precioProcedencia = 0;
         this.precioTotal = 0;
         this.consumo = consumo;
         this.procedencia = procedencia;
         this.setPrecioConsumo(this.consumo);
-        this.setPrecioProcendencia(this.procedencia);
+        this.setPrecioProcedencia(this.procedencia);
         this.setPrecioTotal();
     }
 
+    getConsumo()
+    {
+        return this.consumo;
+    }
 
     getPrecioConsumo() {
         return this.precioConsumo;
     }
 
-    getPrecioProcendencia() {
-        return this.precioProcendencia;
+    getProcedencia()
+    {
+        return this.procedencia;
+    }
+
+    getPrecioProcedencia() {
+        return this.precioProcedencia;
     }
 
     getPrecioTotal() {
@@ -46,24 +55,24 @@ class Electrodomestico {
             }
         }
     }
-    setPrecioProcendencia(procedencia){
+    setPrecioProcedencia(procedencia){
         switch (procedencia.toLowerCase()) {
             case "nacional":{
-                this.precioProcendencia = 250000;
+                this.precioProcedencia = 250000;
                 break;
             }
             case "importado":{
-                this.precioProcendencia = 350000;
+                this.precioProcedencia = 350000;
                 break;
             }
             default:{
-                this.precioProcendencia = 0;
+                this.precioProcedencia = 0;
                 break;
             }
         }
     }
     setPrecioTotal(){
-        this.precioTotal = this.precioConsumo + this.precioProcendencia;
+        this.precioTotal = this.precioConsumo + this.precioProcedencia;
     }
 
 }

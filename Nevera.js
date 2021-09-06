@@ -28,9 +28,9 @@ class Nevera extends Electrodomestico{
     }
     setPrecioTotal(){
         if (this.precioCapacidad === undefined)
-            this.precioTotal = this.getPrecioConsumo() + this.getPrecioProcendencia();
+            this.precioTotal = this.getPrecioConsumo() + this.getPrecioProcedencia();
         else
-            this.precioTotal = this.getPrecioConsumo() + this.getPrecioProcendencia() + 
+            this.precioTotal = this.getPrecioConsumo() + this.getPrecioProcedencia() + 
             this.precioCapacidad;
     }
 

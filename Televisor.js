@@ -36,9 +36,9 @@
     }
     setPrecioTotal() {
         if (this.precioTamano === undefined || this.precioTdt === undefined)
-            this.precioTotal = this.getPrecioConsumo() + this.getPrecioProcendencia();
+            this.precioTotal = this.getPrecioConsumo() + this.getPrecioProcedencia();
         else
-            this.precioTotal = this.getPrecioConsumo() + this.getPrecioProcendencia() + 
+            this.precioTotal = this.getPrecioConsumo() + this.getPrecioProcedencia() + 
             this.precioTamano + this.precioTdt;
     }
 
