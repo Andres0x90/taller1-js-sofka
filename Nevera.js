@@ -9,6 +9,11 @@ class Nevera extends Electrodomestico{
         this.setPrecioTotal();
     }
 
+    getCapacidad()
+    {
+        return this.capacidad;
+    }
+
     getPrecioCapacidad() {
         return this.precioCapacidad;
     }

@@ -12,6 +12,16 @@
         this.setPrecioTotal();
     }
 
+    getTamano()
+    {
+        return this.tamano;
+    }
+
+    getTdt()
+    {
+        return this.tdt;
+    }
+
      getPrecioTamano() {
         return this.precioTamano;
     }
