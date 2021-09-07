@@ -4,7 +4,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejecucion scripts</title>
+    <title>Sistema de facturacion e inventario</title>
+
+    <h3>Añadir inventario</h3>
+    <div>
+        <label for="producto">Producto:</label>
+    
+        <select name="producto" id="producto">
+          <option value="">Selecciona el producto</option>
+          <option value="electrodomestico">Electrodomestico General</option>
+          <option value="televisor">Televisor</option>
+          <option value="nevera">Nevera</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="procedencia">Procedencia:</label>
+    
+        <select name="procedencia" id="procedencia">
+          <option value="">Selecciona la procedencia</option>
+          <option value="importado">Importado/Internacional</option>
+          <option value="nacional">Nacional</option>
+        </select>       
+    </div>
+    <div>
+        <label for="consumo">Consumo:</label>
+    
+        <select name="consumo" id="consumo">
+          <option value="">Selecciona el consumo</option>
+          <option value="a">A</option>
+          <option value="b">B</option>
+          <option value="c">C</option>
+        </select>
+    </div>
+    <div id="televisorOptions" hidden="true">
+        <div>
+            <label for="tamano">Tamaño</label>
+            <input type="number" id="tamano">
+        </div>
+        <div>
+            <label for="tdt">¿Tiene TDT?</label>
+            <select name="tdt" id="tdt">
+                <option value="">Selecciona si tiene TDT</option>
+                <option value="true">Si</option>
+                <option value="false">No</option>
+              </select>        
+        </div>
+    </div>
+    <div id="neveraOptions" hidden="true">
+        <label for="capacidad">Capacidad en Litros: </label>
+        <input type="number" id="capacidad">
+    </div>
+    <div>
+        <button id="addItem">Agregar</button>
+    </div>
 </head>
 <body>
     <script src="Electrodomestico.js"></script>
