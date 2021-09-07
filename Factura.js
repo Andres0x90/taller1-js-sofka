@@ -24,28 +24,22 @@ class Factura
         return total;
     }
 
-    loadItems()
+    unLoadItems()
     {
+        let cantidadesPositivas = true;
+
         this.items.forEach((element, i) =>
         {
-            let cantidadesPositivas = true;
-
-            switch(typeof element)
-            {
-                case "Electrodomestico":
-                    cantidadesPositivas = this.inventario.removeElectrodomestico();
-                break;
-                case "Televisor":
-                    cantidadesPositivas = this.inventario.removeTelevisor();
-                break;
-
-                case "Nevera":
-                    cantidadesPositivas = this.inventario.removeElectrodomestico();
-                break;
-            }
+            if(element.constructor === Electrodomestico)
+                cantidadesPositivas = this.inventario.removeElectrodomestico(element);
+            else if (element.constructor === Televisor)
+                cantidadesPositivas = this.inventario.removeTelevisor(element);
+            else
+                cantidadesPositivas = this.inventario.removeNevera(element);
+        
 
             if (!cantidadesPositivas)
-                break;
+                return cantidadesPositivas;
         });
 
         return cantidadesPositivas;
@@ -53,49 +47,49 @@ class Factura
 
     printFactura()
     {
-        let printedFactura = {nombre: this.nombre};
+        let printedFactura = [{nombre: this.nombre}];
         let printedItems = [];
 
         this.items.forEach((element, i) =>
         {
-
-            switch(typeof element)
+            if(element.constructor === Electrodomestico)
             {
-                case "Electrodomestico":
                     printedItems.push(
                         {
                             producto: "Electrodomestico",
-                            procedencia: element.getPrecedencia(),
+                            procedencia: element.getProcedencia(),
                             consumo: element.getConsumo(),
                             precio: element.getPrecioTotal()
-                        });                
-                break;
-                case "Televisor":
+                        });    
+            }
+            else if (element.constructor === Televisor)
+            {            
                     printedItems.push(
                         {
                             producto: "Televisor",
-                            procedencia: element.getPrecedencia(),
+                            procedencia: element.getProcedencia(),
                             consumo: element.getConsumo(),
                             tamano: element.getTamano(),
                             tdt: element.getTdt(),
                             precio: element.getPrecioTotal()
                         });
-                    
-                break;
+            }
+            else
+            {
+                printedItems.push(
+                    {
+                        producto: "Nevera",
+                        procedencia: element.getProcedencia(),
+                        consumo: element.getConsumo(),
+                        capacidad: element.getCapacidad(),
+                        precio: element.getPrecioTotal()
+                    });
 
-                case "Nevera":
-                    printedItems.push(
-                        {
-                            producto: "Nevera",
-                            procedencia: element.getPrecedencia(),
-                            consumo: element.getConsumo(),
-                            capacidad: element.getCapacidad(),
-                            precio: element.getPrecioTotal()
-                        });
-                break;
             }
         });
         
-        printedFactura.items = printedItems;
+        printedFactura.push(printedItems);
+        printedFactura.push({precioTotal:this.getPrecioTotal()})
+        return printedFactura;
     }
 }

@@ -118,7 +118,7 @@ class Inventario
 
         this.electrodomesticos.forEach((procedencia, p_index) =>
         {
-            procedencia.forEach((elemento), e_index =>
+            procedencia.forEach((elemento, e_index) =>
             {
                 if (elemento < 0)
                 {
@@ -190,9 +190,6 @@ class Inventario
 
     removeTelevisor(televisor)
     {
-        console.log(televisor.getProcedencia());
-        console.log(televisor.getConsumo());
-
         if (televisor.getProcedencia() == "importado")
         {
             switch(televisor.getConsumo())
